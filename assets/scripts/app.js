@@ -1,5 +1,12 @@
 let currentResult = 0
 
-currentResult = currentResult + 10
+outputResult(currentResult,'')
+
+function add(num1, num2) {
+    const result = num1 + num2
+    return result
+}
+
+currentResult = add(1,2)
 
 outputResult(currentResult,'')
