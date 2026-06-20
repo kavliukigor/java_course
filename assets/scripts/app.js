@@ -33,15 +33,27 @@ function calculateResult(calculationType) {
   let mathOperator;
   if (calculationType === 'ADD') {
     currentResult += enteredNumber;
+    mathOperator = '+';
   } else if (calculationType === 'SUBTRACT') {
     currentResult -= enteredNumber;
+    mathOperator = '-';
   } else if (calculationType === 'MULTIPLY') {
     currentResult *= enteredNumber;
+    mathOperator = '*';
   } else if (calculationType === 'DIVIDE') {
     currentResult /= enteredNumber;
-  }
-  createAndWriteOutput(mathOperator, initialResult, enteredNumber);
-  writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+    mathOperator = '/';
+  }   
+  if (calculationType !== 'ADD' && 
+    calculationType !== 'SUBTRACT' && 
+    calculationType !== 'MULTIPLY' && 
+    calculationType !== 'DIVIDE') {
+    console.log('Invalid calculation type');
+    return;
+  } else {
+    createAndWriteOutput(mathOperator, initialResult, enteredNumber);
+    writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+  } 
 }
 
 addBtn.addEventListener('click', calculateResult.bind(this, 'ADD'));
